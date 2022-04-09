@@ -1,19 +1,19 @@
 import React from 'react';
 import {MdDelete} from "react-icons/md";
 
-const UsersListItem = ({item,dataRemove}) => {
+const UsersListItem = ({item,removeItemUserList}) => {
 	return (
 			<tr>
 				<th scope="row">{item.uuid}</th>
-				<td>{item.name}</td>
-				<td>{item.birthDate}</td>
-				<td>{item.phoneNumber}</td>
-				<td>{item.email}</td>
-				<td>{item.companyName}</td>
-				<td>{item.jobType}</td>
-				<td>{item.experience}</td>
+				<td>{item.user_infos.firstName}  {item.user_infos.lastName}</td>
+				<td>{item.user_infos.dob}</td>
+				<td>{item.user_infos.phoneNumber}</td>
+				<td>{item.user_infos.email}</td>
+				<td>{item.work_area.companyName}</td>
+				<td>{item.work_area.jobType}</td>
+				<td>{item.work_area.experience}</td>
 				<td>
-					<button onClick={()=>dataRemove(item.uuid)} className="btn shadow-none btn-outline-danger"><MdDelete/></button></td>
+					<button onClick={()=>removeItemUserList(item.uuid)} className="btn shadow-none btn-outline-danger"><MdDelete/></button></td>
 			</tr>
 	);
 };

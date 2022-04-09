@@ -3,7 +3,7 @@ import "./userList.css";
 import UsersListItem from "./UsersListItem";
 import {useSelector} from "react-redux";
 
-const UserList = ({dataRemove}) => {
+const UserList = ({removeItemUserList}) => {
 	const {usersReducer} = useSelector(state=>state)
 	return (
 		<div className="user_list shadow-lg mb-5 bg-body rounded-3 mt-5">
@@ -25,11 +25,7 @@ const UserList = ({dataRemove}) => {
 							</tr>
 							</thead>
 							<tbody style={{border:"1px solid #e5e9eb"}}>
-							{usersReducer.map((item)=>(
-									<UsersListItem key={item.uuid} dataRemove={dataRemove} item={item}/>
-							))
-
-							}
+							{usersReducer.map((item)=>(<UsersListItem key={item.uuid} removeItemUserList={removeItemUserList} item={item}/>))}
 							</tbody>
 						</table>
 					</div>
